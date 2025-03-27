@@ -1,64 +1,72 @@
 import streamlit as st
 
-# Custom CSS with traffic-inspired theme
+# Custom CSS with dark traffic-inspired theme
 def set_custom_style():
     st.markdown("""
     <style>
-    /* Traffic-inspired color palette and design */
+    /* Dark traffic-inspired color palette */
     .stApp {
-        background-color: #f0f4f8;
+        background-color: #1c2331;
+        color: #e0e0e0;
         font-family: 'Arial', sans-serif;
     }
     
     /* Road-inspired title style */
     .title {
-        color: #1a5f7a;
+        color: #4db8ff;
         text-align: center;
         font-weight: bold;
         margin-bottom: 30px;
         font-size: 2.5em;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
-    /* File uploader styled like a road sign */
+    /* Dark file uploader */
     .stFileUploader {
-        background-color: #e6f2ff;
-        border: 3px solid #2c7bb6;
+        background-color: #2c3e50;
+        border: 2px solid #4db8ff;
         border-radius: 10px;
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         margin-bottom: 20px;
     }
     
-    /* Sidebar like a traffic control panel */
+    /* Sidebar like a dark control panel */
     .css-1aumxhk {
-        background-color: #d9edf7;
-        border: 2px solid #337ab7;
+        background-color: #273746;
+        border: 2px solid #34495e;
         border-radius: 10px;
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
     
-    /* Buttons styled like traffic signals */
+    /* Dark buttons styled like traffic signals */
     .stButton>button {
-        background-color: #28a745;  /* Green for go */
-        color: white;
+        background-color: #2ecc71;  /* Green for go */
+        color: #1c2331;
         border-radius: 8px;
-        border: 2px solid #218838;
+        border: 2px solid #27ae60;
         padding: 10px 20px;
         transition: all 0.3s ease;
+        font-weight: bold;
     }
     
     .stButton>button:hover {
-        background-color: #218838;
+        background-color: #27ae60;
         transform: scale(1.05);
     }
     
-    /* Info message like a road warning */
+    /* Dark info message like a road warning */
     .stAlert {
         border-radius: 8px;
-        background-color: #fff3cd;
-        border: 2px solid #ffc107;
+        background-color: #34495e;
+        color: #ecf0f1;
+        border: 2px solid #4db8ff;
+    }
+    
+    /* Text color adjustments */
+    .stMarkdown, .stText {
+        color: #e0e0e0;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -77,9 +85,6 @@ def main():
         type=['mp4', 'avi', 'mov'], 
         help="Upload a traffic surveillance video"
     )
-    
-    # Sidebar header
-    st.sidebar.header("🛣️ Options")
     
     # Process video when uploaded
     if uploaded_file is not None:
