@@ -1,59 +1,64 @@
 import streamlit as st
 
-# Custom CSS for improved aesthetics
+# Custom CSS with traffic-inspired theme
 def set_custom_style():
     st.markdown("""
     <style>
-    /* Custom background and theme */
+    /* Traffic-inspired color palette and design */
     .stApp {
-        background-color: #f0f2f6;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        font-family: 'Arial', sans-serif;
     }
     
-    /* Stylish title */
+    /* Road-inspired title style */
     .title {
-        color: #2c3e50;
+        color: #1a5f7a;
         text-align: center;
         font-weight: bold;
         margin-bottom: 30px;
         font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Enhanced file uploader */
+    /* File uploader styled like a road sign */
     .stFileUploader {
-        background-color: white;
+        background-color: #e6f2ff;
+        border: 3px solid #2c7bb6;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         margin-bottom: 20px;
     }
     
-    /* Sidebar styling */
+    /* Sidebar like a traffic control panel */
     .css-1aumxhk {
-        background-color: #ffffff;
+        background-color: #d9edf7;
+        border: 2px solid #337ab7;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     
-    /* Button styling */
+    /* Buttons styled like traffic signals */
     .stButton>button {
-        background-color: #3498db;
+        background-color: #28a745;  /* Green for go */
         color: white;
         border-radius: 8px;
-        border: none;
+        border: 2px solid #218838;
         padding: 10px 20px;
         transition: all 0.3s ease;
     }
     
     .stButton>button:hover {
-        background-color: #2980b9;
+        background-color: #218838;
         transform: scale(1.05);
     }
     
-    /* Info message styling */
+    /* Info message like a road warning */
     .stAlert {
         border-radius: 8px;
+        background-color: #fff3cd;
+        border: 2px solid #ffc107;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -62,30 +67,19 @@ def main():
     # Apply custom styling
     set_custom_style()
     
-    # Add a more descriptive title with custom class
-    st.markdown('<h1 class="title">🚦 Traffic Surveillance System</h1>', unsafe_allow_html=True)
+    # Traffic-themed title
+    st.markdown('<h1 class="title">🚦 Traffic Surveillance</h1>', unsafe_allow_html=True)
     
-    # Video upload with enhanced styling
-    st.markdown("### Upload Traffic Video")
+    # Video upload with traffic-inspired styling
+    st.markdown("### 📹 Upload Traffic Video")
     uploaded_file = st.file_uploader(
         "Choose a video file", 
         type=['mp4', 'avi', 'mov'], 
         help="Upload a traffic surveillance video"
     )
     
-    # Sidebar for options
-    st.sidebar.header("📋 System Options")
-    
-    # Optional: Add some explanatory text to sidebar
-    st.sidebar.markdown("""
-    ### About the System
-    This advanced traffic surveillance tool helps monitor and analyze 
-    traffic-related activities using intelligent video processing.
-    """)
-    
-    # Commented out detection options as requested
-    # helmet_detection = st.sidebar.checkbox("Detect Helmets", value=True)
-    # license_plate_detection = st.sidebar.checkbox("Detect License Plates", value=True)
+    # Sidebar header
+    st.sidebar.header("🛣️ Options")
     
     # Process video when uploaded
     if uploaded_file is not None:
@@ -93,24 +87,17 @@ def main():
         col1, col2 = st.columns([2, 1])
         
         with col1:
-            st.markdown("### Uploaded Video")
+            st.markdown("### 🎥 Uploaded Video")
             st.video(uploaded_file)
         
         with col2:
-            st.markdown("### Video Details")
+            st.markdown("### 📋 Video Details")
             st.write(f"Filename: {uploaded_file.name}")
             st.write(f"File Size: {uploaded_file.size} bytes")
         
-        # Detection button with more prominent styling
-        if st.button("🔍 Start Detection"):
+        # Detection button with traffic signal styling
+        if st.button("🚨 Start Detection"):
             st.info("🚧 Detection functionality will be implemented soon")
-            
-            # Placeholder for detection results (commented out)
-            # if helmet_detection:
-            #     st.write("Helmet Detection: Pending")
-            
-            # if license_plate_detection:
-            #     st.write("License Plate Detection: Pending")
 
 if __name__ == "__main__":
     main()
