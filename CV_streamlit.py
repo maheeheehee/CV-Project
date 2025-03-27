@@ -75,8 +75,8 @@ def main():
     # Apply custom styling
     set_custom_style()
     
-    # Traffic-themed title
-    st.markdown('<h1 class="title">🚦 Traffic Surveillance</h1>', unsafe_allow_html=True)
+    # Updated title to reflect specific detection focus
+    st.markdown('<h1 class="title">🛡️ Helmet Violation Detection & Number Plate Recognition</h1>', unsafe_allow_html=True)
     
     # Video upload with traffic-inspired styling
     st.markdown("### 📹 Upload Traffic Video")
